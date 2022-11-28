@@ -1,4 +1,4 @@
-﻿namespace CleanEmployeeTimeTicketApp.Data
+﻿namespace CleanEmployeeTimeTicketApp.Domain
 {
     public class Employee
     {

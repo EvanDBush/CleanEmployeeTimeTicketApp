@@ -1,0 +1,40 @@
+warn: 11/28/2022 17:53:49.464 CoreEventId.SensitiveDataLoggingEnabledWarning[10400] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+dbug: 11/28/2022 17:53:49.508 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'EmployeeProject (Dictionary<string, object>).EmployeesId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 11/28/2022 17:53:49.508 CoreEventId.ShadowPropertyCreated[10600] (Microsoft.EntityFrameworkCore.Model.Validation) 
+      The property 'EmployeeProject (Dictionary<string, object>).ProjectsId' was created in shadow state because there are no eligible CLR members with a matching name.
+dbug: 11/28/2022 17:53:49.768 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 7.0.0 initialized 'EmployeeTimeTicketContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:7.0.0' with options: SensitiveDataLoggingEnabled 
+dbug: 11/28/2022 17:53:49.883 CoreEventId.ValueGenerated[10808] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      'EmployeeTimeTicketContext' generated temporary value '-2147482647' for the property 'Id.Employee'.
+dbug: 11/28/2022 17:53:49.980 CoreEventId.StartedTracking[10806] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      Context 'EmployeeTimeTicketContext' started tracking 'Employee' entity with key '{Id: -2147482647}'.
+dbug: 11/28/2022 17:53:49.995 CoreEventId.SaveChangesStarting[10004] (Microsoft.EntityFrameworkCore.Update) 
+      SaveChanges starting for 'EmployeeTimeTicketContext'.
+dbug: 11/28/2022 17:53:49.999 CoreEventId.DetectChangesStarting[10800] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges starting for 'EmployeeTimeTicketContext'.
+dbug: 11/28/2022 17:53:50.010 CoreEventId.DetectChangesCompleted[10801] (Microsoft.EntityFrameworkCore.ChangeTracking) 
+      DetectChanges completed for 'EmployeeTimeTicketContext'.
+dbug: 11/28/2022 17:53:50.157 RelationalEventId.ConnectionCreating[20005] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Creating DbConnection.
+dbug: 11/28/2022 17:53:50.383 RelationalEventId.ConnectionCreated[20006] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Created DbConnection. (221ms).
+dbug: 11/28/2022 17:53:50.403 RelationalEventId.ConnectionOpening[20000] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opening connection to database 'EmployeeTimeTicketAppData' on server '(localdb)\MSSQLLocalDB'.
+dbug: 11/28/2022 17:53:51.695 RelationalEventId.ConnectionOpened[20001] (Microsoft.EntityFrameworkCore.Database.Connection) 
+      Opened connection to database 'EmployeeTimeTicketAppData' on server '(localdb)\MSSQLLocalDB'.
+dbug: 11/28/2022 17:53:51.755 RelationalEventId.CommandCreating[20103] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Creating DbCommand for 'ExecuteReader'.
+dbug: 11/28/2022 17:53:51.764 RelationalEventId.CommandCreated[20104] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Created DbCommand for 'ExecuteReader' (7ms).
+dbug: 11/28/2022 17:53:51.774 RelationalEventId.CommandInitialized[20106] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Initialized DbCommand for 'ExecuteReader' (19ms).
+dbug: 11/28/2022 17:53:51.787 RelationalEventId.CommandExecuting[20100] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executing DbCommand [Parameters=[@p0='string' (Size = 4000), @p1='Gary' (Size = 4000), @p2='0', @p3='Berry' (Size = 4000), @p4='0'], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Employees] ([EMail], [FirstName], [HourlyRate], [LastName], [TaxWithholding])
+      OUTPUT INSERTED.[Id]
+      VALUES (@p0, @p1, @p2, @p3, @p4);
+info: 11/28/2022 17:53:51.916 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFramew
