@@ -6,7 +6,7 @@ namespace CleanEmployeeTimeTicketApp.Data
     
     /* (OCP) The EmployeeTimeTicketContext inherits from the DBContext. This way we can extend the DBContext 
      * in our application without modifying the actual dbcontext class. Using inheritence in this way allows us to 
-     * extend according to the Open and Closed Princinple of the SOLID principles. */
+     * extend according to the Open and Closed Principle of the SOLID principles. */
     public class EmployeeTimeTicketContext : DbContext
     {
         /*Dependency Inversion (DI)

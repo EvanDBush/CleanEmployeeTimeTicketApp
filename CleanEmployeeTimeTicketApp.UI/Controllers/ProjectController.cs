@@ -12,47 +12,48 @@ namespace CleanEmployeeTimeTicketApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TimeTicketsController : ControllerBase
+    public class ProjectsController : ControllerBase
     {
         private readonly EmployeeTimeTicketContext _context;
 
-        public TimeTicketsController(EmployeeTimeTicketContext context)
+        public ProjectsController(EmployeeTimeTicketContext context)
         {
             _context = context;
         }
 
-        // GET: api/TimeTickets
+        // GET: api/Projects
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TimeTicket>>> GetTimeTickets()
+        public async Task<ActionResult<IEnumerable<Project>>> GetProjects()
         {
-            return await _context.TimeTickets.ToListAsync();
+            return await _context.Projects.ToListAsync();
         }
 
-        // GET: api/TimeTickets/5
+        // GET: api/Project/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<TimeTicket>> GetTimeTicket(int id)
+        public async Task<ActionResult<Project>> GetProject(int id)
         {
-            var timeTicket = await _context.TimeTickets.FindAsync(id);
+            var project
+                = await _context.Projects.FindAsync(id);
 
-            if (timeTicket == null)
+            if (project == null)
             {
                 return NotFound();
             }
 
-            return timeTicket;
+            return project;
         }
 
-        // PUT: api/TimeTickets/5
+        // PUT: api/Projects/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTimeTicket(int id, TimeTicket timeTicket)
+        public async Task<IActionResult> PutProject(int id, Project project)
         {
-            if (id != timeTicket.Id)
+            if (id != project.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(timeTicket).State = EntityState.Modified;
+            _context.Entry(project).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +61,7 @@ namespace CleanEmployeeTimeTicketApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TimeTicketExists(id))
+                if (!ProjectExists(id))
                 {
                     return NotFound();
                 }
@@ -76,33 +77,33 @@ namespace CleanEmployeeTimeTicketApp.Controllers
         // POST: api/Employees
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<TimeTicket>> PostTimeTicket(TimeTicket timeTicket)
+        public async Task<ActionResult<TimeTicket>> PostProject(Project project)
         {
-            _context.TimeTickets.Add(timeTicket);
+            _context.Projects.Add(project);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTimeTicket", new { id = timeTicket.Id }, timeTicket);
+            return CreatedAtAction("GetProject", new { id = project.Id }, project);
         }
 
         // DELETE: api/TimeTickets/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTimeTicket(int id)
+        public async Task<IActionResult> DeleteProject(int id)
         {
-            var timeTicket = await _context.TimeTickets.FindAsync(id);
-            if (timeTicket == null)
+            var project = await _context.Projects.FindAsync(id);
+            if (project == null)
             {
                 return NotFound();
             }
 
-            _context.TimeTickets.Remove(timeTicket);
+            _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool TimeTicketExists(int id)
+        private bool ProjectExists(int id)
         {
-            return _context.TimeTickets.Any(e => e.Id == id);
+            return _context.Projects.Any(e => e.Id == id);
         }
     }
 }
